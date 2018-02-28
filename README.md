@@ -1,2 +1,2 @@
-# 8_Queens_Hill_Climbing
+# 8-Queens Hill Climbing
 Implementation of the hill-climbing search algorithm for the 8-queens problem.
