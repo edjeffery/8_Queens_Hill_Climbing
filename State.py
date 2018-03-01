@@ -61,8 +61,9 @@ class State:
             pick = random.randint(0, len(best_moves) - 1)
             col = best_moves[pick][0]
             row = best_moves[pick][1]
-            self.board[col] = row
+            new_board = np.copy(self.board)
+            new_board[col] = row
 
-        return State(self.board)
+        return State(new_board)
 
 
