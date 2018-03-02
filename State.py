@@ -38,6 +38,8 @@ class State:
         """ Generates the best available next state.
         If multiple states have equal value, a random state is selected. """
 
+        new_board = np.copy(self.board)
+
         potential_moves = {}
         for col in range(len(self.board)):
             for row in range(len(self.board)):
@@ -61,7 +63,6 @@ class State:
             pick = random.randint(0, len(best_moves) - 1)
             col = best_moves[pick][0]
             row = best_moves[pick][1]
-            new_board = np.copy(self.board)
             new_board[col] = row
 
         return State(new_board)

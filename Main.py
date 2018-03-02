@@ -15,13 +15,23 @@ def hill_climbing(problem):
         print("Current value: " + str(current.get_value()))
         if neighbour.get_value() >= current.get_value():
             print("No lower valued state")
-            return current.board
+            return (current.board, count, 0)
         current = neighbour
         print("")
+        count += 1
     print("Solution found")
-    return current.board
+    return (current.board, count, 1) # 1 indicates solution found
 
+no_of_steps = []
+count = 0
+for i in range(100):
+    count += 1
+    problem = Problem()
+    result = hill_climbing(problem)
+    if result[2] == 1:
+        no_of_steps.append(count)
+        count = 0
 
-problem = Problem()
-#print(problem.initial_state)
-print("Final state = " + str(hill_climbing(problem)))
+print(no_of_steps)
+print(sum(no_of_steps)/len(no_of_steps ))
+
